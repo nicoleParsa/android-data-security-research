@@ -1,9 +1,9 @@
-# project description
+# Project Description
 
 
 
-# Nicole Parsa's COntribution
+# Nicole Parsa's Contribution
 
 
 
-# Mark Fernando's COntribution
+# Mark Fernando's Contribution
