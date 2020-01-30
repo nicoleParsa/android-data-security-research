@@ -1,9 +1,7 @@
-package com.example.data_security;
+package com.example.password_protected_app;
 
 import android.util.Log;
-
 import java.util.HashMap;
-
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;

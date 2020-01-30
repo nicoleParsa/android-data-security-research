@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "data_security"
+rootProject.name = "password_protected_app"

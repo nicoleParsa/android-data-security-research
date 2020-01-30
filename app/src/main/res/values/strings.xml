@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">data_security</string>
+    <string name="app_name">password_protected_app</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -9,4 +9,9 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="Enter_pass">Enter password</string>
+    <string name="pass_again">Enter password again</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="Enter_Buttom">Enter</string>
+    <string name="main_content">The main app content</string>
 </resources>

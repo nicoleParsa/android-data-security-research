@@ -1,4 +1,4 @@
-package com.example.data_security;
+package com.example.password_protected_app;
 
 import android.util.Log;
 

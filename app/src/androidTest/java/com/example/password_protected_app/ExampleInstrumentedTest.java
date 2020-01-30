@@ -1,4 +1,4 @@
-package com.example.data_security;
+package com.example.password_protected_app;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.data_security", appContext.getPackageName());
+        assertEquals("com.example.password_protected_app", appContext.getPackageName());
     }
 }
