@@ -1,43 +1,43 @@
 package com.example.password_protected_app;
 
 import android.util.Log;
-import java.util.HashMap;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import java.security.SecureRandom;
+import javax.crypto.SecretKeyFactory;
+import java.util.HashMap;
+import javax.crypto.spec.PBEKeySpec;
 
 public class DataDecryptionByNicoleParsa
 {
-    byte[] decryptData(HashMap<String, byte[]> map, String passwordString)
+    byte[] decryptData(HashMap<String, byte[]> hashMap, String myPasswordString)
     {
-        byte[] decrypted = null;
+        byte[] decryptedByteArray = null;
         try
         {
-            byte salt[] = map.get("salt");
-            byte iv[] = map.get("iv");
-            byte encrypted[] = map.get("encrypted");
+            byte saltArray[] = hashMap.get("salt");
+            byte ivArray[] = hashMap.get("iv");
+            byte encryptedByteArray[] = hashMap.get("encrypted");
 
-            //regenerate key from password
-            char[] passwordChar = passwordString.toCharArray();
-            PBEKeySpec pbKeySpec = new PBEKeySpec(passwordChar, salt, 1324, 256);
-            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            byte[] keyBytes = secretKeyFactory.generateSecret(pbKeySpec).getEncoded();
-            SecretKeySpec keySpec = new SecretKeySpec(keyBytes, "AES");
+            //regenerate secret key from password
+            char[] passCharArray = myPasswordString.toCharArray();
+            PBEKeySpec keySpec = new PBEKeySpec(passCharArray, saltArray, 1324, 256);
+            SecretKeyFactory secretKey = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            byte[] keyBytesArray = secretKey.generateSecret(keySpec).getEncoded();
+            SecretKeySpec secretKeySpec = new SecretKeySpec(keyBytesArray, "AES");
 
-            //Decrypt
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            IvParameterSpec ivSpec = new IvParameterSpec(iv);
-            cipher.init(Cipher.DECRYPT_MODE, keySpec, ivSpec);
-            decrypted = cipher.doFinal(encrypted);
+            //Decryption is done below:
+            Cipher cipherObj = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            IvParameterSpec ivSpec = new IvParameterSpec(ivArray);
+            cipherObj.init(Cipher.DECRYPT_MODE, secretKeySpec, ivSpec);
+            decryptedByteArray = cipherObj.doFinal(encryptedByteArray);
         }
         catch(Exception e)
         {
-            //Log.e("MYAPP", "decryption exception", e);
             System.out.println("decrypt: " + e);
         }
 
-        return decrypted;
+        return decryptedByteArray;
     }
 }
